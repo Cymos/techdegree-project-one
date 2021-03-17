@@ -1,2 +1,2 @@
-# techdegree-project-one
+# Techdegree Project 1
  My first techdegree project
