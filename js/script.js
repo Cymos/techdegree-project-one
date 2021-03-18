@@ -16,24 +16,29 @@ const quotes = [
     quote: 'One does not simply walk into Mordor.',
     source: 'Boromir',
     citation: 'Lord of the Rings: The Fellowship of the Ring',
-    year: 2001
+    year: 2001,
+    tag: 'film'
   },
   {
     // second object
     quote: 'I am not a cat',
     source: 'Keith Gill (AKA Roaring Kitty)',
-    year: 2021
+    year: 2021,
+    tag: 'meme'
   },
   {
     // third object
     quote: 'A lion does not concern himself with the opinion of sheep',
     source: 'Tywin Lannister',
+    citation: 'Game of Thrones',
+    tag: 'book'
   },
   {
     // fourth object
     quote: 'I used to be an adventurer like you, then I took an arrow to the knee',
     source: 'Whiterun Guard, Skyrim',
-    year: 2011
+    year: 2011,
+    tag: 'videogame'
   },
   {
     // fifth object
@@ -44,7 +49,8 @@ const quotes = [
   {
     // add more objects if needed
     quote: "It's-a me, Mario!",
-    source: 'Mario Mario'
+    source: 'Mario Mario',
+    citation: 'Nintendo'
   }
 ];
 
@@ -52,9 +58,9 @@ const quotes = [
   The getRandomQuote function should create a random number, and use that random number to return a random quote object from the quotes array.
 */
 
-function getRandomQuote(arr) {
-  let randomNum = Math.floor(Math.random() * (arr.length)); // random number generated between 0 and the number elements in array
-  let randQuote = arr[randomNum];
+function getRandomQuote(quotes) {
+  let randomNum = Math.floor(Math.random() * (quotes.length)); // random number generated between 0 and the number elements in array
+  let randQuote = quotes[randomNum];
   return randQuote;
 }
 
@@ -62,23 +68,35 @@ function getRandomQuote(arr) {
   Perform 3 tasks: Call the getRandomQuote function, use the returned quote object to build a string of HTML and quote properties, then use that string to display a random quote in the browser.
 */
 function printQuote() {
-  let quotation = getRandomQuote(quotes);
+  let randomQuote = getRandomQuote(quotes);
   let html = `
-  <p class="quote">${quotation["quote"]}</p>
-  <p class="source">${quotation["source"]}
+  <p class="quote">${randomQuote.quote}</p>
+  <p class="source">${randomQuote.source}
   `; // build the HTML string. Leave off the last tag until end of possible data to be added
 
   // if the objects have further properties, make sure they're displayed. Either way ensure closing <p> tag is added to end of string
-    if (quotation.citation) {
-      html += `<span class="citation">${quotation["citation"]}</span>`;
+    if (randomQuote.citation) {
+      html += `<span class="citation">${randomQuote.citation}</span>`;
     } 
-    if (quotation.year) {
-      html += `<span class="year">${quotation["year"]}</span>`;
+    if (randomQuote.year) {
+      html += `<span class="year">${randomQuote.year}</span>`;
+    }
+    if (randomQuote.tag) {
+      html += `<span class="tag">${randomQuote.tag}</span>`;
     }
   html += `</p>`; 
+ 
   document.getElementById('quote-box').innerHTML = html; // select the quote-box div and update it's HTML content with the random quote markup
+
+  /*
+    NEXT STEPS:
+    1) Create a random function that updates the background color to a random color
+    2) Create a timing function with the setInterval() method to print a new quote to the page at regular intervals, like every 10 to 20 seconds
+  */
 }
 
+// code structure referenced from https://www.w3schools.com/jsref/met_win_setinterval.asp to remind me how to structure the method 
+setInterval(printQuote, 10000); // 10,000ms = 10 second
 
 /***
  * click event listener for the print quote button

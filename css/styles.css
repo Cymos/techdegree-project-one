@@ -110,8 +110,25 @@ h1 {
   font-style: normal;
 }
 
+.citation:after {
+  content: " ";
+}
+
 .year:before {
   content: ", ";
+  font-style: normal;
+}
+
+.year:after {
+  content: " ";
+}
+
+.tag {
+  content: ", ";
+  font-style: normal;
+}
+
+.tag:before {
   font-style: normal;
 }
 
