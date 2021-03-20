@@ -77,7 +77,7 @@ function printQuote() {
     }
   html += `</p>`;
   
-  document.body.style.backgroundColor = `${randomRGB(randomValue)}`;
+  document.body.style.backgroundColor = `${randomRGB(randomValue)}`; // code reference found at https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp 
   document.getElementById('quote-box').innerHTML = html; // select the quote-box div and update it's HTML content with the random quote markup
 
 }
