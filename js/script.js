@@ -58,7 +58,8 @@ const quotes = [
   The getRandomQuote function should create a random number, and use that random number to return a random quote object from the quotes array.
 */
 
-function getRandomQuote(quotes) {
+// quotes does not need to be in the function definition as the scope allows it to be seen
+function getRandomQuote() {
   let randomNum = Math.floor(Math.random() * (quotes.length)); // random number generated between 0 and the number elements in array
   let randQuote = quotes[randomNum];
   return randQuote;
