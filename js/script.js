@@ -62,8 +62,7 @@ function printQuote() {
   let randomQuote = getRandomQuote(quotes);
   let html = `
   <p class="quote">${randomQuote.quote}</p>
-  <p class="source">${randomQuote.source}
-  `; // build the HTML string. Leave off the last tag until end of possible data to be added
+  <p class="source">${randomQuote.source}`; // build the HTML string. Leave off the last tag until end of possible data to be added
 
   // if the objects have further properties, make sure they're displayed. Either way ensure closing <p> tag is added to end of string
     if (randomQuote.citation) {
